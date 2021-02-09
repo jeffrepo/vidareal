@@ -7,8 +7,8 @@
             string="Cheque G&amp;T"
             model="account.payment"
             report_type="qweb-pdf"
-            file="cuatropisos.reporte_account_payment1"
-            name="cuatropisos.reporte_account_payment1"
+            file="vidareal.reporte_account_payment1"
+            name="vidareal.reporte_account_payment1"
         />
 
         <report
@@ -16,8 +16,17 @@
             string="Cheque chequera"
             model="account.payment"
             report_type="qweb-pdf"
-            file="cuatropisos.reporte_account_payment2"
-            name="cuatropisos.reporte_account_payment2"
+            file="vidareal.reporte_account_payment2"
+            name="vidareal.reporte_account_payment2"
+        />
+
+        <report
+            id="reporte_vidareal_factura_librearia"
+            string="Factura libreria"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="vidareal.reporte_factura_libreria"
+            name="vidareal.reporte_factura_libreria"
         />
 
     </data>
