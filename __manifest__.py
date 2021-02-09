@@ -13,6 +13,8 @@
         'views/report.xml',
      	'views/reporte_payment1.xml',
       	'views/reporte_payment2.xml',
+        'views/reporte_factura_libreria.xml',
+        
     ],
     'installable': True,
     'auto_install': False,
