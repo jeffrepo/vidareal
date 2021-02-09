@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            id="vidareal_account_payment1"
+            string="Cheque G&amp;T"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="cuatropisos.reporte_account_payment1"
+            name="cuatropisos.reporte_account_payment1"
+        />
+
+        <report
+            id="vidareal_account_payment2"
+            string="Cheque chequera"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="cuatropisos.reporte_account_payment2"
+            name="cuatropisos.reporte_account_payment2"
+        />
+
+    </data>
+</odoo>
