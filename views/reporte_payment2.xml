@@ -45,46 +45,32 @@
                                         <td class="text-left"><span t-field="l.account_id.code"/></td>
                                         <td class="text-left"><span t-field="l.account_id.name"/></td>
                                         <td class="text-right"> <span t-field="l.debit" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/></td>
-                                        <td class="text-right"><span t-field="l.credit" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/></td>
+                                        <td class="text-right"><span t-field="l.credit" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/></td>
                                     </tr>
                                     <t t-set="total_debe" t-value="total_debe+l.debit"/>
                                     <t t-set="total_haber" t-value="total_haber+l.credit"/>
                                 </t>
-
-                            </tbody>
-                        </table>
-
-                        <table style="width:90%">
-                            <thead>
                                 <tr>
-                                    <td colspan="4" class="text-left" style="border-bottom: 1px solid black;border-top: 1px solid black;">DESCRIPCION de PAGO</td>
+                                    <td colspan="4" class="text-left" style="border-bottom: 1px solid black;border-top: 1px solid black;">DESCRIPCION DE PAGO</td>
                                 </tr>
-                            </thead>
-                            <tbody>
                                 <tr>
                                     <td colspan="4" class="text-left"><span t-field="o.communication"/></td>
                                 </tr>
-
-                            </tbody>
-                        </table>
-                        <br/>
-                        <br/>
-                        <table style="width:90%">
-                            <thead>
                                 <tr>
-                                    <td colspan="2" class="text-left" style="border-bottom: 1px solid black;border-top: 1px solid black;">TOTAL</td>
-                                    <td class="text-right" style="border-bottom: 1px solid black;border-top: 1px solid black;"><span t-esc="total_debe" t-esc-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/></td>
-                                    <td class="text-right" style="border-bottom: 1px solid black;border-top: 1px solid black;"><span t-esc="total_haber" t-esc-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/></td>
+                                    <td colspan="2" class="text-right" style="border-bottom: 1px solid black;border-top: 1px solid black;">TOTAL</td>
+                                    <td class="text-right" style="border-bottom: 1px solid black;border-top: 1px solid black;"><span t-esc="total_debe" t-esc-options='{"widget": "monetary", "display_currency": "o.company_id.currency_id"}' /></td>
+                                    <td class="text-right" style="border-bottom: 1px solid black;border-top: 1px solid black;"><span t-esc="total_haber" t-field-options='{"widget": "monetary", "display_currency": "o.company_id.currency_id"}' /></td>
 
                                 </tr>
-                            </thead>
+                            </tbody>
                         </table>
+
                         <br/>
                         <br/>
 
                     </div>
 
-                    <div style="position: absolute; top: 23.2cm; left: 0.8cm">
+                    <div style="position: absolute; top: 28.2cm; left: 0.8cm">
                         <table>
                             <tbody>
                                 <tr>
