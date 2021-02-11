@@ -70,19 +70,6 @@
 
                     </div>
 
-                    <div style="position: absolute; top: 28.2cm; left: 0.8cm">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td style="width: 0cm">
-                                        <span t-field="user.name"/>
-                                    </td>
-                                    <td style="width: 1">
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
 
                 </div>
             </t>
