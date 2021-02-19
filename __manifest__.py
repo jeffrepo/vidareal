@@ -13,6 +13,7 @@
         'views/report.xml',
      	'views/reporte_payment1.xml',
       	'views/reporte_payment2.xml',
+        'views/reporte_payment3.xml',
         'views/reporte_factura_libreria.xml',
 
     ],

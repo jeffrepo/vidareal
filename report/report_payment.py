@@ -33,3 +33,7 @@ class ReportPayment1(models.AbstractModel):
 class ReportPayment2(models.AbstractModel):
     _name = 'report.vidareal.reporte_account_payment2'
     _inherit = 'vidareal.abstract.reporte_account_payment'
+
+class ReportPayment3(models.AbstractModel):
+    _name = 'report.vidareal.reporte_account_payment3'
+    _inherit = 'vidareal.abstract.reporte_account_payment'

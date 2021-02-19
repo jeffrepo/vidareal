@@ -29,5 +29,14 @@
             name="vidareal.reporte_factura_libreria"
         />
 
+        <report
+            id="vidareal_account_payment3"
+            string="Pago tesoreria"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="vidareal.reporte_account_payment3"
+            name="vidareal.reporte_account_payment3"
+        />
+
     </data>
 </odoo>
