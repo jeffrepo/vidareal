@@ -9,7 +9,7 @@
                 <div class="page">
 
                     <div style="font-size: 95%; position: absolute; top: 2cm; left: 18cm">
-                        <span t-field="o.amount"/>
+                        <span t-esc="'{0:,.2f}'.format(o.amount)"/>
                     </div>
                     <div style="font-size: 95%; position: absolute; top: 3cm; left: 5cm">
                         <span t-field="o.partner_id.name"/>
@@ -17,20 +17,20 @@
                     <div style="font-size: 95%; position: absolute; top: 4cm; left: 5cm">
                         <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/> <span t-field="o.partner_id.country_id.name"/>
                     </div>
-                    <div style="font-size: 95%; position: absolute; top: 5cm; left: 5cm">
-                        <span t-esc="a_letras.num_a_letras(o.amount)"/>
-                    </div>
                     <div style="font-size: 95%; position: absolute; top: 7cm; left: 5cm">
                         <span t-esc="a_letras.num_a_letras(o.amount)"/>
                     </div>
+                    <div style="font-size: 95%; position: absolute; top: 8cm; left: 5cm">
+                        <span t-esc="o.descripcion"/>
+                    </div>
                     <div style="font-size: 95%; position: absolute; top: 9cm; left: 7cm">
-                        <span t-esc="o.journal_id.name"/>
+                        <span t-esc="o.x_studio_forma_de_pago"/>
                     </div>
                     <div style="font-size: 95%; position: absolute; top: 10cm; left: 7cm">
-                        <span t-esc="o.journal_id.name"/>
+                        <span t-esc="o.x_studio_banco"/>
                     </div>
                     <div style="font-size: 95%; position: absolute; top: 11cm; left: 7cm">
-                        <span t-esc="o.name"/>
+                        <span t-esc="o.x_studio_documento_no"/>
                     </div>
                 </div>
             </t>
