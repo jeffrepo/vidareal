@@ -8,7 +8,7 @@
     'description': """ Vida Real """,
     'website': 'http://aquih.com',
     'author': 'aquíH',
-    'depends': ['account'],
+    'depends': ['account','l10n_gt_extra'],
     'data': [
         'views/report.xml',
      	'views/reporte_payment1.xml',
