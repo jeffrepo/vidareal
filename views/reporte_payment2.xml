@@ -1,78 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="reporte_account_payment2">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="o">
-                <div class="page">
+      <t t-call="web.html_container">
+          <t t-set="data_report_margin_top" t-value="3"/>
+          <t t-set="data_report_header_spacing" t-value="9"/>
+          <t t-set="data_report_dpi" t-value="110"/>
+          <t t-foreach="docs" t-as="o">
+              <div class="page">
 
-                    <div style="font-size: 95%; position: absolute; top: 1.8cm; left: 3.8cm">
-                        GUATEMALA, <span t-field="o.payment_date"/>
-                    </div>
-                    <div style="font-size: 95%; position: absolute; top: 2cm; left: 18.5cm">
-                        <span t-esc="'{0:,.2f}'.format(o.amount)"/>
-                    </div>
-                    <div style="font-size: 95%; position: absolute; top: 2.8cm; left: 4.0cm; width: 18.5cm">
-                        <span t-esc="o.partner_id.name"/>
-                    </div>
-                    <div style="font-size: 95%; text-transform: uppercase; position: absolute; top: 3.8cm; left: 3.8cm; width: 20cm">
-                        <span t-esc="a_letras.num_a_letras(o.amount)"/>
-                    </div>
-                    <div style="font-size: 95%; position: absolute; top: 8.9cm; left: 2.8cm; width: 15cm">
-                        <span t-field="o.communication"/>
-                    </div>
-
-
-
-                    <div style="font-size: 150%; position: absolute; top: 18cm; left: 10cm">
-                        <p>**********VOUCHER**********</p>
-
-                    </div>
-                    <t t-set="total_debe" t-value="0"/>
-                    <t t-set="total_haber" t-value="0"/>
-                    <div style="font-size: 150%; position: absolute; top: 20cm;">
-                        <table class="table table-condensed" style="width:90%">
-                            <thead>
-                                <tr>
-                                    <td class="text-center">CUENTA</td>
-                                    <td class="text-center">DETALLE</td>
-                                    <td class="text-right">DEBE</td>
-                                    <td class="text-right">HABER</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <t t-foreach="o.move_line_ids" t-as="l">
-                                    <tr>
-                                        <td class="text-left"><span t-field="l.account_id.code"/></td>
-                                        <td class="text-left"><span t-field="l.account_id.name"/></td>
-                                        <td class="text-right"> <span t-field="l.debit" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/></td>
-                                        <td class="text-right"><span t-field="l.credit" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/></td>
-                                    </tr>
-                                    <t t-set="total_debe" t-value="total_debe+l.debit"/>
-                                    <t t-set="total_haber" t-value="total_haber+l.credit"/>
-                                </t>
-                                <tr>
-                                    <td colspan="4" class="text-left" style="border-bottom: 1px solid black;border-top: 1px solid black;">DESCRIPCION DE PAGO</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4" class="text-left"><span t-field="o.communication"/></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="text-right" style="border-bottom: 1px solid black;border-top: 1px solid black;">TOTAL</td>
-                                    <td class="text-right" style="border-bottom: 1px solid black;border-top: 1px solid black;"><span t-esc="total_debe" t-esc-options='{"widget": "monetary", "display_currency": "o.company_id.currency_id"}' /></td>
-                                    <td class="text-right" style="border-bottom: 1px solid black;border-top: 1px solid black;"><span t-esc="total_haber" t-field-options='{"widget": "monetary", "display_currency": "o.company_id.currency_id"}' /></td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <br/>
-                        <br/>
-
-                    </div>
+                  <div style="font-size: 95%; position: absolute; top: 2.7cm; left: 2.5cm">
+                      GUATEMALA, <span t-field="o.payment_date"/>
+                  </div>
+                  <div style="font-size: 95%; position: absolute; top: 2.9cm; left: 15.8cm">
+                      <span t-esc="'{0:,.2f}'.format(o.amount)"/>
+                  </div>
+                  <div style="font-size: 95%; position: absolute; top: 3.5cm; left: 3.0cm; width: 17.5cm">
+                      <span t-esc="o.partner_id.name"/>
+                  </div>
+                  <div style="font-size: 95%; text-transform: uppercase; position: absolute; top: 4.5cm; left: 2.8cm; width: 18cm">
+                      <span t-esc="a_letras.num_a_letras(o.amount)"/>
+                  </div>
+                  <div style="font-size: 95%; position: absolute; top: 8.9cm; left: 5.5cm; width: 15cm">
+                      <span t-field="o.communication"/>
+                  </div>
+                  <t t-if="o.no_negociable">
+                      <div style="font-size: 95%; position: absolute; top: 5.5cm; left: 5.5cm;">
+                          NO NEGOCIABLE
+                      </div>
+                  </t>
 
 
-                </div>
-            </t>
-        </t>
+
+                  <div style="font-size: 150%; position: absolute; top: 18cm; left: 10cm">
+                      <p>**********VOUCHER**********</p>
+
+                  </div>
+                  <t t-set="total_debe" t-value="0"/>
+                  <t t-set="total_haber" t-value="0"/>
+                  <div style="font-size: 150%; position: absolute; top: 20cm;">
+                      <table class="table table-condensed" style="width:90%">
+                          <thead>
+                              <tr>
+                                  <td class="text-center">CUENTA</td>
+                                  <td class="text-center">DETALLE</td>
+                                  <td class="text-right">DEBE</td>
+                                  <td class="text-right">HABER</td>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <t t-foreach="o.move_line_ids" t-as="l">
+                                  <tr>
+                                      <td class="text-left"><span t-field="l.account_id.code"/></td>
+                                      <td class="text-left"><span t-field="l.account_id.name"/></td>
+                                      <td class="text-right"> <span t-field="l.debit" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/></td>
+                                      <td class="text-right"><span t-field="l.credit" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/></td>
+                                  </tr>
+                                  <t t-set="total_debe" t-value="total_debe+l.debit"/>
+                                  <t t-set="total_haber" t-value="total_haber+l.credit"/>
+                              </t>
+                              <tr>
+                                  <td colspan="4" class="text-left" style="border-bottom: 1px solid black;border-top: 1px solid black;">DESCRIPCION DE PAGO</td>
+                              </tr>
+                              <tr>
+                                  <td colspan="4" class="text-left"><span t-field="o.communication"/></td>
+                              </tr>
+                              <tr>
+                                  <td colspan="2" class="text-right" style="border-bottom: 1px solid black;border-top: 1px solid black;">TOTAL</td>
+                                  <td class="text-right" style="border-bottom: 1px solid black;border-top: 1px solid black;"><span t-esc="total_debe" t-esc-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.company_id.currency_id&quot;}"/></td>
+                                  <td class="text-right" style="border-bottom: 1px solid black;border-top: 1px solid black;"><span t-esc="total_haber" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.company_id.currency_id&quot;}"/></td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+
+                      <br/>
+                      <br/>
+
+                  </div>
+
+
+              </div>
+          </t>
+      </t>
+
     </template>
 </odoo>

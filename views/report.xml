@@ -4,7 +4,7 @@
 
         <report
             id="vidareal_account_payment1"
-            string="Cheque G&amp;T"
+            string="Voucher G&amp;T"
             model="account.payment"
             report_type="qweb-pdf"
             file="vidareal.reporte_account_payment1"
